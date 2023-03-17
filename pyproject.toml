@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "hpc_service"
+version = "0.1.0"
+description = "Service for job schedulers of high-performance computing systems"
+authors = ["Roman Pashkovsky <romapasky@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "hpc_service", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "*"
+poetry = "*"
+pydantic = "*"
+uvicorn = "*"
+
+[tool.poetry.group.dev.dependencies]
+httpx = "*"
+pytest = "^6.0.0"
+
+[tool.poetry.scripts]
+start = "hpc_service.app.main:start"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+pythonpath = "src"
