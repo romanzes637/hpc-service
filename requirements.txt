@@ -1,0 +1,4 @@
+fastapi
+poetry
+pydantic
+uvicorn
